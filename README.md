@@ -670,6 +670,12 @@ python etl/pipeline.py
 ### Analytics
 <img width="758" height="441" alt="Analytics" src="https://github.com/user-attachments/assets/6ff08ea2-06c9-4cf9-938e-6cd930f3e18a" />
 
+### ETL Testing
+<img width="953" height="440" alt="image" src="https://github.com/user-attachments/assets/00cbe6d5-d8a4-4028-8b9f-924422519b5c" />
+<img width="960" height="411" alt="image" src="https://github.com/user-attachments/assets/25dc0643-5f19-4aa6-81af-b99f87a9009a" />
+<img width="955" height="395" alt="image" src="https://github.com/user-attachments/assets/056a4216-2446-4ad6-b4b7-c88e6395a9b0" />
+
+
 ### API — Swagger UI
 <img width="934" height="400" alt="Swagger UI 1" src="https://github.com/user-attachments/assets/2adc58ec-76d5-4c2d-9ee8-14b46a48ea52" />
 <img width="936" height="438" alt="Swagger UI 2" src="https://github.com/user-attachments/assets/66541846-3902-4691-8736-d822f5d14adc" />
