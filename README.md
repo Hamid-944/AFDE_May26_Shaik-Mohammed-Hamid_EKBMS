@@ -646,34 +646,34 @@ python etl/pipeline.py
 
 ## Screenshots
 
-> Add screenshots to a `screenshots/` folder at the project root and update the paths below.
+### Landing Page
+<img width="949" height="443" alt="Landing Page" src="https://github.com/user-attachments/assets/f8013e76-e8b3-4d1f-b6bf-af78ff3a6dc6" />
 
 ### Dashboard
-![Dashboard overview with stats cards, top articles, and charts](screenshots/dashboard.png)
+<img width="958" height="443" alt="Dashboard" src="https://github.com/user-attachments/assets/15f45d76-0cb6-4d94-b301-1349b3406df9" />
 
 ### Article Listing
-![Article list with filters, search bar, status badges, and pagination](screenshots/articles-list.png)
+<img width="763" height="431" alt="Article Listing" src="https://github.com/user-attachments/assets/bf8c0847-35a9-47e4-a21c-431fa2add30f" />
 
 ### Article Detail
-![Article detail view with rich content, rating, comments, and bookmark](screenshots/article-detail.png)
+<img width="759" height="425" alt="Article Detail" src="https://github.com/user-attachments/assets/bc739b09-bbeb-47c1-bd81-524d171b0ea1" />
 
 ### Create / Edit Article
-![TipTap rich-text editor with category and tag selection](screenshots/article-editor.png)
+<img width="753" height="389" alt="Article Editor" src="https://github.com/user-attachments/assets/71ac8562-96ce-4ccd-8479-994c346ce434" />
 
 ### Approval Queue
-![Pending approvals list for Reviewers with approve/reject actions](screenshots/approvals.png)
+<img width="718" height="370" alt="Approval Queue" src="https://github.com/user-attachments/assets/68813619-b503-469a-a48f-68cbfecc13bc" />
 
 ### User Management
-![Admin user list with role badges and deactivation controls](screenshots/users.png)
+<img width="748" height="436" alt="User Management" src="https://github.com/user-attachments/assets/bef72778-828b-4858-98c3-f0d959194d79" />
 
-### Search
-![Full-text search page with filters by category, tag, and sort order](screenshots/search.png)
+### Analytics
+<img width="758" height="441" alt="Analytics" src="https://github.com/user-attachments/assets/6ff08ea2-06c9-4cf9-938e-6cd930f3e18a" />
 
 ### API — Swagger UI
-![Swagger interactive API documentation at /api/docs](screenshots/swagger.png)
-
-### Login Page
-![Login page with demo credential quick-fill cards for all 4 roles](screenshots/login.png)
+<img width="934" height="400" alt="Swagger UI 1" src="https://github.com/user-attachments/assets/2adc58ec-76d5-4c2d-9ee8-14b46a48ea52" />
+<img width="936" height="438" alt="Swagger UI 2" src="https://github.com/user-attachments/assets/66541846-3902-4691-8736-d822f5d14adc" />
+<img width="957" height="429" alt="Swagger UI 3" src="https://github.com/user-attachments/assets/29818425-8aaa-417d-9a19-93c171619a59" />
 
 ---
 
