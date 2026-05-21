@@ -548,6 +548,102 @@ ekbms/
 
 ---
 
+## ETL Pipeline (Phase 2)
+
+### Overview
+
+The ETL pipeline imports 105 knowledge articles from a CSV dataset, cleans and normalises the data, loads it into MySQL, and refreshes four analytics tables used by the reporting dashboard.
+
+```
+datasets/articles.csv
+        │
+        ▼
+┌───────────────┐    ┌──────────────────┐    ┌─────────────────────┐
+│    EXTRACT    │───▶│    TRANSFORM     │───▶│        LOAD         │
+│               │    │                  │    │                     │
+│ Read CSV with │    │ • Strip whitespace│    │ • Upsert categories │
+│ pandas        │    │ • Normalise cats  │    │ • Upsert tags       │
+│ Validate cols │    │ • Parse tag lists │    │ • Import articles   │
+│               │    │ • Cast numerics   │    │ • Refresh analytics │
+│               │    │ • Derive read time│    │   tables            │
+│               │    │ • Deduplicate     │    │ • Log ETL run       │
+└───────────────┘    └──────────────────┘    └─────────────────────┘
+                                                        │
+                              ┌─────────────────────────┼──────────────────────┐
+                              ▼                         ▼                      ▼
+                  analytics_most_viewed   analytics_category_trends   analytics_author_stats
+                  analytics_search_trends
+```
+
+### Dataset
+
+**Location:** `datasets/articles.csv`
+
+**105 articles** across 8 categories:
+
+| Category | Count |
+|---|---|
+| Engineering | 21 |
+| Security | 15 |
+| DevOps | 16 |
+| Data Science | 15 |
+| Product Management | 11 |
+| HR & Culture | 11 |
+| Finance | 8 |
+| Legal & Compliance | 8 |
+
+**CSV columns:** `id, title, category, tags, author_name, author_email, views, avg_rating, word_count, status, created_date, summary`
+
+### Running the ETL Pipeline
+
+**Option A — From the UI (Admin only):**
+1. Log in as Admin
+2. Go to **ETL & Analytics** in the sidebar
+3. Click **Run ETL Pipeline**
+4. The page auto-refreshes and shows the run result
+
+**Option B — From the terminal (standalone script):**
+```bash
+cd "Enterprise Knowledge Based Management System"
+backend\venv\Scripts\activate
+
+# Run the pipeline directly
+python etl/pipeline.py
+```
+
+### ETL Scripts
+
+| File | Stage | Description |
+|---|---|---|
+| `etl/extract.py` | Extract | Reads `datasets/articles.csv` with pandas; validates required columns |
+| `etl/transform.py` | Transform | Cleans text, normalises categories, parses tags, casts numerics, deduplicates |
+| `etl/load.py` | Load | Upserts categories/tags/authors, imports articles, refreshes all analytics tables |
+| `etl/pipeline.py` | Orchestrate | Runs E→T→L in sequence; logs timing and errors to `etl_run_log` table |
+
+### Analytics APIs
+
+| Endpoint | Description |
+|---|---|
+| `GET /api/analytics/summary` | All analytics in one response |
+| `GET /api/analytics/most-viewed` | Top articles by view count |
+| `GET /api/analytics/category-trends` | Articles + views per category |
+| `GET /api/analytics/author-activity` | Per-author article and view stats |
+| `GET /api/analytics/search-keywords` | Top searched keywords |
+| `POST /api/etl/run` | Trigger ETL pipeline (Admin) |
+| `GET /api/etl/history` | ETL run history (Admin) |
+| `GET /api/etl/status/{id}` | Single ETL run status (Admin) |
+
+### Analytics Dashboard Features
+
+- **Most Viewed Articles** — horizontal bar chart (top 10 by views)
+- **Category Usage Trends** — donut pie chart (article count per category)
+- **Author Activity Report** — bar chart + detail table (articles, views, avg rating)
+- **Search Keyword Analysis** — bar chart + keyword pill badges
+- **Category Views Breakdown** — stacked bar chart (total views per category)
+- **ETL Run History** — table of past runs with status, counts, and duration
+
+---
+
 ## Screenshots
 
 > Add screenshots to a `screenshots/` folder at the project root and update the paths below.

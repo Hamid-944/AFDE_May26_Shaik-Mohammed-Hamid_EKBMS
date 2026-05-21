@@ -9,3 +9,4 @@ from app.models.rating import Rating
 from app.models.bookmark import Bookmark
 from app.models.approval import ApprovalWorkflow
 from app.models.search_log import SearchLog
+from app.models.analytics import ETLRunLog, AnalyticsMostViewed, AnalyticsCategoryTrend, AnalyticsAuthorStats, AnalyticsSearchTrend

@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
 from app.database import engine, Base
 from app import models  # ensure all models are registered before create_all
-from app.routes import auth, users, categories, tags, articles, approvals, files, search, collaboration, dashboard
+from app.routes import auth, users, categories, tags, articles, approvals, files, search, collaboration, dashboard, analytics, etl
 
 app = FastAPI(
     title="Enterprise Knowledge Base Management System",
@@ -37,6 +37,8 @@ app.include_router(files.router, prefix="/api")
 app.include_router(search.router, prefix="/api")
 app.include_router(collaboration.router, prefix="/api")
 app.include_router(dashboard.router, prefix="/api")
+app.include_router(analytics.router, prefix="/api")
+app.include_router(etl.router, prefix="/api")
 
 
 @app.get("/api/health")

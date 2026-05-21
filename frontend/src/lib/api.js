@@ -123,3 +123,19 @@ export const collaborationApi = {
 export const dashboardApi = {
   get: () => api.get('/dashboard'),
 }
+
+// ── Analytics ─────────────────────────────────────────────────────────────────
+export const analyticsApi = {
+  summary: () => api.get('/analytics/summary'),
+  mostViewed: (limit = 10) => api.get('/analytics/most-viewed', { params: { limit } }),
+  categoryTrends: () => api.get('/analytics/category-trends'),
+  authorActivity: (limit = 15) => api.get('/analytics/author-activity', { params: { limit } }),
+  searchKeywords: (limit = 15) => api.get('/analytics/search-keywords', { params: { limit } }),
+}
+
+// ── ETL ───────────────────────────────────────────────────────────────────────
+export const etlApi = {
+  run: () => api.post('/etl/run'),
+  history: (limit = 10) => api.get('/etl/history', { params: { limit } }),
+  status: (id) => api.get(`/etl/status/${id}`),
+}

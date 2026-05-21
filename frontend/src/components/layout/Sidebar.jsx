@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
   LayoutDashboard, FileText, Search, FolderOpen, Tag, Users,
-  CheckSquare, BarChart2, BookOpen, LogOut, ChevronRight, Shield
+  CheckSquare, BarChart2, BookOpen, LogOut, ChevronRight, Shield, Database
 } from 'lucide-react'
 import { useAuthStore } from '@/store/authStore'
 import { cn } from '@/lib/utils'
@@ -16,6 +16,7 @@ const navItems = [
   { to: '/approvals', icon: CheckSquare, label: 'Approvals', roles: ['Admin', 'Reviewer'] },
   { to: '/users', icon: Users, label: 'Users', roles: ['Admin'] },
   { to: '/reports', icon: BarChart2, label: 'Reports', roles: ['Admin'] },
+  { to: '/etl-analytics', icon: Database, label: 'ETL & Analytics', roles: ['Admin'] },
 ]
 
 function NavItem({ item }) {

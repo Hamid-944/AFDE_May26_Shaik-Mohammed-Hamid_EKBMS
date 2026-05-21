@@ -16,6 +16,7 @@ import TagsPage from '@/pages/TagsPage'
 import ApprovalsPage from '@/pages/ApprovalsPage'
 import UsersPage from '@/pages/UsersPage'
 import ReportsPage from '@/pages/ReportsPage'
+import ETLAnalyticsPage from '@/pages/ETLAnalyticsPage'
 
 function RequireAuth({ children }) {
   const { isAuthenticated } = useAuthStore()
@@ -64,6 +65,9 @@ export default function App() {
         } />
         <Route path="reports" element={
           <RequireRole roles={['Admin']}><ReportsPage /></RequireRole>
+        } />
+        <Route path="etl-analytics" element={
+          <RequireRole roles={['Admin']}><ETLAnalyticsPage /></RequireRole>
         } />
       </Route>
 
